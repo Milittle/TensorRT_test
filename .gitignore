@@ -1,0 +1,5 @@
+data/*
+output/*
+env*.txt
+.vs/*
+3rdparty/*

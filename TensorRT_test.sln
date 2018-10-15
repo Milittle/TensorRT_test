@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sampleGoogleNet", "src\samp
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sampleINT8", "src\sampleINT8\sampleINT8.vcxproj", "{68B2E581-D9E4-48DC-8ED4-999747888CDA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sampleMLP", "src\sampleMLP\sampleMLP.vcxproj", "{FCF5809C-2F12-44BC-84B5-39509496619A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +83,14 @@ Global
 		{68B2E581-D9E4-48DC-8ED4-999747888CDA}.Release|x64.Build.0 = Release|x64
 		{68B2E581-D9E4-48DC-8ED4-999747888CDA}.Release|x86.ActiveCfg = Release|Win32
 		{68B2E581-D9E4-48DC-8ED4-999747888CDA}.Release|x86.Build.0 = Release|Win32
+		{FCF5809C-2F12-44BC-84B5-39509496619A}.Debug|x64.ActiveCfg = Debug|x64
+		{FCF5809C-2F12-44BC-84B5-39509496619A}.Debug|x64.Build.0 = Debug|x64
+		{FCF5809C-2F12-44BC-84B5-39509496619A}.Debug|x86.ActiveCfg = Debug|Win32
+		{FCF5809C-2F12-44BC-84B5-39509496619A}.Debug|x86.Build.0 = Debug|Win32
+		{FCF5809C-2F12-44BC-84B5-39509496619A}.Release|x64.ActiveCfg = Release|x64
+		{FCF5809C-2F12-44BC-84B5-39509496619A}.Release|x64.Build.0 = Release|x64
+		{FCF5809C-2F12-44BC-84B5-39509496619A}.Release|x86.ActiveCfg = Release|Win32
+		{FCF5809C-2F12-44BC-84B5-39509496619A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

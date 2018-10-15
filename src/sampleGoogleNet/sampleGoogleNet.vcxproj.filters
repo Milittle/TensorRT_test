@@ -15,14 +15,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="sampleMNIST.cpp">
+    <ClCompile Include="sampleGoogleNet.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\..\common\windows\getopt.c">
       <Filter>源文件</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="README.md" />
   </ItemGroup>
 </Project>

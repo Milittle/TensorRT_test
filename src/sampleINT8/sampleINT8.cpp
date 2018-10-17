@@ -395,7 +395,7 @@ int main(int argc, char** argv)
 		scoreModel(batchSize, firstScoreBatch, nbScoreBatches, DataType::kINT8, &calibrator);
 	}
 
-	shutdownProtobufLibrary();
+	shutdownProtobufLibrary(); //caffe model spec
 
 	system("pause");
 	return 0;

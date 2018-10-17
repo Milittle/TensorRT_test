@@ -280,6 +280,7 @@ int main(int argc, char** argv)
 		"VGG16_faster_rcnn_final.caffemodel",
 		std::vector < std::string > { OUTPUT_BLOB_NAME0, OUTPUT_BLOB_NAME1, OUTPUT_BLOB_NAME2 },
 		N, &pluginFactorySerialize, &trtModelStream);
+
     assert(trtModelStream != nullptr);
     pluginFactorySerialize.destroyPlugin();
 

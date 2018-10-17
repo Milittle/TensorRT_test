@@ -3,3 +3,5 @@ output/*
 env*.txt
 .vs/*
 3rdparty/*
+src/sampleNMT/*
+src/sampleSSD/*

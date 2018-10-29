@@ -8,6 +8,7 @@ Project **TensorRT_test** is an TensorRT Library Example Integrated based on Win
 
 * [Prerequisites](#Prerequisites)
 * [Getting the code](#getting-the-code)
+* [Project Structure](#project-structure)
 * [Run the Example using VS](#run-the-example-using-vs)
   * [1. sampleUffMNIST](#sampleUffMNIST)
   * [2. sampleUffSSD](#sampleUffSSD)
@@ -29,7 +30,7 @@ Project **TensorRT_test** is an TensorRT Library Example Integrated based on Win
 * CUDA 10.0  [DOWNLOAD LINK](https://developer.nvidia.com/cuda-downloads)
 * cudnn 7.3 [DOWNLOAD LINK](https://developer.nvidia.com/cudnn)
 * You need the Visual Stdio 2017
-* The DataSets in my Google Cloud
+* The DataSets in my Google Driver
 
 ## Getting the code
 
@@ -37,6 +38,64 @@ You can use the git tool to clone the Project, through:
 
 ```shell
 git clone git@github.com:Milittle/TensorRT_test.git
+```
+
+## Project Structure
+
+The Following is my Integrated Project's Structure, and you can download **data** and **3rdparty** by:
+
+**Google Driver** : [data and 3rdparty download link](https://drive.google.com/drive/folders/1mDKSmK5n2n7KnZhW5mQbUSJTSzZteN8c?usp=sharing)
+
+Once you download the data and 3rdparty, you can open the TenosrRT_test.sln file and exec the samples by Visual Studio 2017.
+
+Good luck to you.
+
+```shell
+TensorRT_test:
+|	3rdparty
+└---|	TensorRT-5.0.1.3
+|	└-------------------
+|	common
+└---|	windows
+|	|	argsParser.h
+|	|	BatchStream.h
+|	|	buffers.h
+|	|	common.h
+|	|	dumpTFWts.py
+|	|	half.h
+|	|	sampleConfig.h
+|	└-------------------
+|	data
+└---|	char-rnn
+|	|	example_gif
+|	|	faster-rcnn
+|	|	googlenet
+|	|	mlp
+|	|	mnist
+|	|	movielens
+|	|	nmt
+|	|	ssd
+|	└-------------------
+|	src
+└---|	sampleCharRNN
+|	|	sampleFasterRCNN
+|	|	sampleGoogleNet
+|	|	sampleINT8
+|	|	sampleMLP
+|	|	sampleMNIST
+|	|	sampleMNISTAPI
+|	|	sampleMovieLens
+|	|	sampleNMT
+|	|	samplePlugin
+|	|	sampleUffMNIST
+|	|	sampleUffSSD
+|	└--------------------
+|	.gitignore
+└------------------------
+|	README.md
+└------------------------
+|	TensorRT_test.sln
+└------------------------
 ```
 
 ## Run the Example using VS
@@ -114,4 +173,3 @@ This example has some error, I cannot through the model prototxt parser the mode
 **Email:** mizeshuang@gmail.com
 
 **Author:**  Milittle
-

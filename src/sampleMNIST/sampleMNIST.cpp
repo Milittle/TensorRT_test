@@ -6,20 +6,21 @@
 //! It can be run with the following command line:
 //! Command: ./sample_mnist [-h or --help] [-d=/path/to/data/dir or --datadir=/path/to/data/dir]
 
-#include "common.h"
-#include "argsParser.h"
-#include "buffers.h"
-
-#include "NvCaffeParser.h"
-#include "NvInfer.h"
-
-#include <cuda_runtime_api.h>
-#include <algorithm>
 #include <cassert>
 #include <cmath>
+
+#include <algorithm>
 #include <fstream>
 #include <iostream>
 #include <sstream>
+
+#include <cuda_runtime_api.h>
+#include "NvCaffeParser.h"
+#include "NvInfer.h"
+
+#include "common.h"
+#include "argsParser.h"
+#include "buffers.h"
 
 static Logger gLogger;
 

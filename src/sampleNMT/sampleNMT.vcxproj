@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{4D5DE4E1-7327-4E2F-8B25-1FE34CE739C7}</ProjectGuid>
+    <RootNamespace>sampleNMT</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)output\$(Platform)\$(Configuration)\$(ProjectName)\bin\</OutDir>
+    <IntDir>$(SolutionDir)output\$(Platform)\$(Configuration)\$(ProjectName)\tmp\</IntDir>
+    <LibraryPath>$(SolutionDir)3rdparty\TensorRT-5.0.1.3\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)output\$(Platform)\$(Configuration)\$(ProjectName)\bin\</OutDir>
+    <IntDir>$(SolutionDir)output\$(Platform)\$(Configuration)\$(ProjectName)\tmp\</IntDir>
+    <LibraryPath>$(SolutionDir)3rdparty\TensorRT-5.0.1.3\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(CUDA_PATH_V10_0)\include;$(CUDA_PATH_V10_0)\include\nvtx3;$(SolutionDir)3rdparty\TensorRT-5.0.1.3\include;$(SolutionDir)common;$(SolutionDir)common\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4244;4996;4715;4146</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(SolutionDir)3rdparty\TensorRT-5.0.1.3\lib\*.lib;$(CUDA_PATH_V10_0)\lib\x64\*.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(CUDA_PATH_V10_0)\include;$(CUDA_PATH_V10_0)\include\nvtx3;$(SolutionDir)3rdparty\TensorRT-5.0.1.3\include;$(SolutionDir)common;$(SolutionDir)common\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4244;4996;4715;4146</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(SolutionDir)3rdparty\TensorRT-5.0.1.3\lib\*.lib;$(CUDA_PATH_V10_0)\lib\x64\*.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="component.h" />
+    <ClInclude Include="cudaError.h" />
+    <ClInclude Include="data\benchmarkWriter.h" />
+    <ClInclude Include="data\bleuScoreWriter.h" />
+    <ClInclude Include="data\dataReader.h" />
+    <ClInclude Include="data\dataWriter.h" />
+    <ClInclude Include="data\limitedSamplesDataReader.h" />
+    <ClInclude Include="data\sequenceProperties.h" />
+    <ClInclude Include="data\textReader.h" />
+    <ClInclude Include="data\textWriter.h" />
+    <ClInclude Include="data\vocabulary.h" />
+    <ClInclude Include="deviceBuffer.h" />
+    <ClInclude Include="model\alignment.h" />
+    <ClInclude Include="model\attention.h" />
+    <ClInclude Include="model\beamSearchPolicy.h" />
+    <ClInclude Include="model\componentWeights.h" />
+    <ClInclude Include="model\context.h" />
+    <ClInclude Include="model\debugUtil.h" />
+    <ClInclude Include="model\decoder.h" />
+    <ClInclude Include="model\embedder.h" />
+    <ClInclude Include="model\encoder.h" />
+    <ClInclude Include="model\likelihood.h" />
+    <ClInclude Include="model\likelihoodCombinationOperator.h" />
+    <ClInclude Include="model\lstmDecoder.h" />
+    <ClInclude Include="model\lstmEncoder.h" />
+    <ClInclude Include="model\multiplicativeAlignment.h" />
+    <ClInclude Include="model\projection.h" />
+    <ClInclude Include="model\slpAttention.h" />
+    <ClInclude Include="model\slpEmbedder.h" />
+    <ClInclude Include="model\slpProjection.h" />
+    <ClInclude Include="model\softmaxLikelihood.h" />
+    <ClInclude Include="pinnedHostBuffer.h" />
+    <ClInclude Include="trtUtil.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="README.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="data\benchmarkWriter.cpp" />
+    <ClCompile Include="data\bleuScoreWriter.cpp" />
+    <ClCompile Include="data\dataWriter.cpp" />
+    <ClCompile Include="data\limitedSamplesDataReader.cpp" />
+    <ClCompile Include="data\textReader.cpp" />
+    <ClCompile Include="data\textWriter.cpp" />
+    <ClCompile Include="data\vocabulary.cpp" />
+    <ClCompile Include="model\beamSearchPolicy.cpp" />
+    <ClCompile Include="model\componentWeights.cpp" />
+    <ClCompile Include="model\context.cpp" />
+    <ClCompile Include="model\debugUtil.cpp" />
+    <ClCompile Include="model\lstmDecoder.cpp" />
+    <ClCompile Include="model\lstmEncoder.cpp" />
+    <ClCompile Include="model\multiplicativeAlignment.cpp" />
+    <ClCompile Include="model\slpAttention.cpp" />
+    <ClCompile Include="model\slpEmbedder.cpp" />
+    <ClCompile Include="model\slpProjection.cpp" />
+    <ClCompile Include="model\softmaxLikelihood.cpp" />
+    <ClCompile Include="sampleNMT.cpp" />
+    <ClCompile Include="trtUtil.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

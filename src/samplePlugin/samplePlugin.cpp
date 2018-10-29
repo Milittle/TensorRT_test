@@ -1,17 +1,18 @@
+
+#include <time.h>
 #include <assert.h>
+#include <string.h>
+#include <cstdint>
+#include <cmath>
+#include <sys/stat.h>
 #include <fstream>
 #include <sstream>
 #include <iostream>
-#include <cmath>
-#include <sys/stat.h>
-#include <cmath>
-#include <time.h>
+#include <memory>
+
 #include <cuda_runtime_api.h>
 #include <cudnn.h>
 #include <cublas_v2.h>
-#include <memory>
-#include <string.h>
-#include <cstdint>
 
 #include "NvInfer.h"
 #include "NvCaffeParser.h"

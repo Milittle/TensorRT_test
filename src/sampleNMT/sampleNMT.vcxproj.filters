@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="component.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="cudaError.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="deviceBuffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pinnedHostBuffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="trtUtil.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="model\alignment.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="model\attention.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="model\beamSearchPolicy.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="model\componentWeights.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="model\context.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="model\debugUtil.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="model\decoder.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="model\embedder.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="model\encoder.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="model\likelihood.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="model\likelihoodCombinationOperator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="model\lstmDecoder.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="model\lstmEncoder.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="model\multiplicativeAlignment.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="model\projection.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="model\slpAttention.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="model\slpEmbedder.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="model\slpProjection.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="model\softmaxLikelihood.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="data\benchmarkWriter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="data\bleuScoreWriter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="data\dataReader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="data\dataWriter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="data\limitedSamplesDataReader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="data\sequenceProperties.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="data\textReader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="data\textWriter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="data\vocabulary.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="README.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sampleNMT.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="trtUtil.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="model\beamSearchPolicy.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="model\componentWeights.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="model\context.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="model\debugUtil.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="model\lstmDecoder.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="model\lstmEncoder.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="model\multiplicativeAlignment.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="model\slpAttention.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="model\slpEmbedder.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="model\slpProjection.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="model\softmaxLikelihood.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="data\benchmarkWriter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="data\bleuScoreWriter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="data\dataWriter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="data\limitedSamplesDataReader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="data\textReader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="data\textWriter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="data\vocabulary.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

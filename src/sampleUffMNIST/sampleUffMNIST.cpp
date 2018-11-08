@@ -290,7 +290,10 @@ int main(int argc, char** argv)
 
     if (!trtEngineStream)
         RETURN_AND_LOG(EXIT_FAILURE, ERROR, "Model load failed");
-	fstream os("engineStream.bin", std::ios::out | std::ios::binary);
+
+
+	//serialize the engine and save to 'engineStream.bin' file in data/mnist/ folder
+	fstream os("../../data/mnist/engineStream.bin", std::ios::out | std::ios::binary);
 	os.write((const char*)trtEngineStream->data(), trtEngineStream->size());
 	os.close();
 

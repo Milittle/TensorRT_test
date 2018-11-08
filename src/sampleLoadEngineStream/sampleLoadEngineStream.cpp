@@ -219,18 +219,31 @@ int main(int argc, char** argv)
 {
 	nvinfer1::IRuntime* runtime = nvinfer1::createInferRuntime(gLogger);
 	nvinfer1::IPluginFactory* factory{ nullptr };
-	std::ifstream is("../data/mnist/engineStream.bin", std::ios::binary);
+	std::ifstream is("../../data/mnist/engineStream.bin", std::ios::binary);
 	is.seekg(0, is.end);
 	int length = is.tellg();
 	is.seekg(0, is.beg);
-	char *buffer = new char[length];
-	is.read(buffer, length);
-	is.close();
-	nvinfer1::ICudaEngine* engine = runtime->deserializeCudaEngine(buffer, length, factory);
-	if (!engine)
-		RETURN_AND_LOG(-1, ERROR, "load the engine failed");
-	execute(*engine);
 
-	system("pause");
+	try {
+		char *buffer = new char[length];
+		is.read(buffer, length);
+		is.close();
+
+		nvinfer1::ICudaEngine* engine = runtime->deserializeCudaEngine(buffer, length, factory);
+		if (!engine)
+			RETURN_AND_LOG(-1, ERROR, "load the engine failed");
+		execute(*engine);
+
+		delete[] buffer;
+		runtime->destroy();
+		engine->destroy();
+
+		system("pause");
+		return 0;
+	}
+	catch (...) {
+		is.close();
+	}
 	return 0;
+	
 }

@@ -1,22 +1,27 @@
+
+#include <sys/stat.h>
+#include <cstdlib>
+#include <cassert>
+
 #include <algorithm>
 #include <chrono>
-#include <cstdlib>
-#include <cuda_runtime_api.h>
 #include <fstream>
 #include <iostream>
 #include <string>
-#include <sys/stat.h>
 #include <unordered_map>
-#include <cassert>
 #include <vector>
+
+#include <cuda_runtime_api.h>
+
 #include "NvInfer.h"
 #include "NvUffParser.h"
-
 #include "NvUtils.h"
+
+#include "common.h"
 
 using namespace nvuffparser;
 using namespace nvinfer1;
-#include "common.h"
+
 
 static Logger gLogger;
 static int gUseDLACore{-1};
@@ -43,11 +48,11 @@ inline unsigned int elementSize(DataType t)
 {
 	switch (t)
 	{
-	case DataType::kINT32:
-		// Fallthrough, same as kFLOAT
-	case DataType::kFLOAT: return 4;
-	case DataType::kHALF: return 2;
-	case DataType::kINT8: return 1;
+		case DataType::kINT32:
+			// Fallthrough, same as kFLOAT
+		case DataType::kFLOAT: return 4;
+		case DataType::kHALF: return 2;
+		case DataType::kINT8: return 1;
 	}
 	assert(0);
 	return 0;
@@ -165,8 +170,8 @@ void printOutput(int64_t eltCount, DataType dtype, void* buffer)
 }
 
 
-ICudaEngine* loadModelAndCreateEngine(const char* uffFile, int maxBatchSize,
-                                      IUffParser* parser)
+void* loadModelAndCreateEngine(const char* uffFile, int maxBatchSize,
+                                      IUffParser* parser, IHostMemory*& trtEngineStream)
 {
     IBuilder* builder = createInferBuilder(gLogger);
     INetworkDefinition* network = builder->createNetwork();
@@ -191,9 +196,12 @@ ICudaEngine* loadModelAndCreateEngine(const char* uffFile, int maxBatchSize,
 
     /* we can clean the network and the parser */
     network->destroy();
-    builder->destroy();
+	builder->destroy();
 
-    return engine;
+	trtEngineStream = engine->serialize();
+    
+	engine->destroy();
+	shutdownProtobufLibrary();
 }
 
 
@@ -276,13 +284,22 @@ int main(int argc, char** argv)
     parser->registerInput("in", Dims3(1, 28, 28), UffInputOrder::kNCHW);
     parser->registerOutput("out");
 
-    ICudaEngine* engine = loadModelAndCreateEngine(fileName.c_str(), maxBatchSize, parser);
+	IHostMemory *trtEngineStream{ nullptr };
 
-    if (!engine)
+    loadModelAndCreateEngine(fileName.c_str(), maxBatchSize, parser, trtEngineStream);
+
+    if (!trtEngineStream)
         RETURN_AND_LOG(EXIT_FAILURE, ERROR, "Model load failed");
+	fstream os("engineStream.bin", std::ios::out | std::ios::binary);
+	os.write((const char*)trtEngineStream->data(), trtEngineStream->size());
+	os.close();
 
     /* we need to keep the memory created by the parser */
     parser->destroy();
+
+	IRuntime* runtime = createInferRuntime(gLogger);
+	nvinfer1::IPluginFactory* factory{ nullptr };
+	ICudaEngine* engine = runtime->deserializeCudaEngine(trtEngineStream->data(), trtEngineStream->size(), factory);
 
     execute(*engine);
     engine->destroy();

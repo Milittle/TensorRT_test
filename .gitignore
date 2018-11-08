@@ -4,3 +4,4 @@ env*.txt
 .vs/*
 3rdparty/*
 src/sampleSSD/*
+src/sampleUffCifar10/*

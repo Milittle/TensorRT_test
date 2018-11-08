@@ -453,6 +453,7 @@ int main(int argc, char** argv)
     trtModelStream->destroy();
     IExecutionContext *context = engine->createExecutionContext();
     assert(context != nullptr);
+	
 
     // run inference
     float prob[OUTPUT_SIZE];

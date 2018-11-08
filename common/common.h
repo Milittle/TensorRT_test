@@ -59,7 +59,7 @@ constexpr long long int operator"" _KB(long long unsigned int val) { return val 
 class Logger : public nvinfer1::ILogger
 {
 public:
-    Logger(Severity severity = Severity::kWARNING)
+    Logger(Severity severity = Severity::kERROR)
         : reportableSeverity(severity)
     {
     }

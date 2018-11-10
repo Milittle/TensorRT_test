@@ -4,6 +4,10 @@ Project **TensorRT_test** is an TensorRT Library Example Integrated based on Win
 
 >you can look more information about **TensorRT** in [TensorRT Dev Guide](https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/index.html) 
 
+## Not NVIDIA TensorRT official Sample(BY Myself)
+
+* **sampleLoadEngineStream:** deserializing the engine stream by `engineStream.bin` locating in the `{SolutionDir}/data/mnist/` folder.
+
 ## Table of Content
 
 * [Prerequisites](#Prerequisites)

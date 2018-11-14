@@ -7,6 +7,7 @@ Project **TensorRT_test** is an TensorRT Library Example Integrated based on Win
 ## Not NVIDIA TensorRT official Sample(BY Myself)
 
 * **sampleLoadEngineStream:** deserializing the engine stream by `engineStream.bin` locating in the `{SolutionDir}/data/mnist/` folder.
+* **sampleResNetv2**: using the Resnetv2 pb file transform to uff file and executing the inference.
 
 ## Table of Content
 

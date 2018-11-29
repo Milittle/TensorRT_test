@@ -232,6 +232,7 @@ void execute(ICudaEngine& engine)
 	context->execute(batchSize, &buffers[0]);
 	auto t_end = std::chrono::high_resolution_clock::now();
 	long long ms = std::chrono::duration<float, std::milli>(t_end - t_start).count();
+	std::cout << "total consume: " << ms << " ms" << std::endl;
 
 	for (int bindingIdx = 0; bindingIdx < nbBindings; ++bindingIdx)
 	{
@@ -274,7 +275,7 @@ int main(int argc, char **argv)
 	if (!trtEngineStream)
 		RETURN_AND_LOG(EXIT_FAILURE, ERROR, "Model load failed");
 
-	//serialize the engine and save to 'engineStream.bin' file in data/mnist/ folder
+	//serialize the engine and save to 'engineStream.bin' file in data/resnet/ folder
 	fstream os("../../data/resnet/engineStream.bin", std::ios::out | std::ios::binary);
 	os.write((const char*)trtEngineStream->data(), trtEngineStream->size());
 	os.close();
@@ -288,6 +289,8 @@ int main(int argc, char **argv)
 	execute(*engine);
 
 	engine->destroy();
+	runtime->destroy();
+	trtEngineStream->destroy();
 
 	system("pause");
 

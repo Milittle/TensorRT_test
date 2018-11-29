@@ -8,6 +8,15 @@ Project **TensorRT_test** is an TensorRT Library Example Integrated based on Win
 
 * **sampleLoadEngineStream:** deserializing the engine stream by `engineStream.bin` locating in the `{SolutionDir}/data/mnist/` folder.
 * **sampleResNetv2**: using the Resnetv2 pb file transform to uff file and executing the inference.
+* **sampleDetection**: solve the TensorFlow BatchNormalization operator. TensorRT do not support the BN's Switch and Merge. I use pb graph and remove some nodes about Switching and Merging then merging related node to pb graph, which  convert to uff file using for TensorRT uff parser parsing the model file.
+
+**sampleDetection Time consume:**
+
+|      tensorflow（python）- Titan-12G       |     tensorrt（c++）- Qudra 4G      |   结论   |
+| :----------------------------------------: | :--------------------------------: | :------: |
+|        pure run time（1344.3049ms）        |   pure execution time（44.5ms）    | 30 times |
+| load data and related Tensor nodes（3473） | load data and execute（171.373ms） | 20 times |
+|                GPU mem-2GB                 |                ---                 |          |
 
 ## Table of Content
 

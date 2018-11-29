@@ -19,7 +19,7 @@
 using namespace nvinfer1;
 using namespace nvuffparser;
 
-static Logger gLogger;
+static Logger gLogger{ ILogger::Severity::kINFO };
 static samplesCommon::Args args;
 
 #define RETURN_AND_LOG(ret, severity, message)                                 \
@@ -515,24 +515,29 @@ int main(int argc, char* argv[])
     // Parse command-line arguments.
     samplesCommon::parseArgs(args, argc, argv);
 
+	// This function should be called once before accessing the Plugin Registry.
     initLibNvInferPlugins(&gLogger, "");
+
+	//auto creator = getPluginRegistry()->getPluginCreator("RPROI_TRT", FLATTENCONCAT_PLUGIN_VERSION);
+	//auto version = creator->getPluginName();
 
     auto fileName = locateFile("sample_ssd_relu6.uff");
     std::cout << fileName << std::endl;
 
-    const int N = 2;
+    const int maxBatchSize = 2;
     auto parser = createUffParser();
-
-    BatchStream calibrationStream(CAL_BATCH_SIZE, NB_CAL_BATCHES);
 
     parser->registerInput("Input", DimsCHW(3, 300, 300), UffInputOrder::kNCHW);
     parser->registerOutput("MarkOutput_0");
 
+	//saving serialized engine model stream
     IHostMemory* trtModelStream{nullptr};
 
+	//define the calibrator object for calibrating
+	BatchStream calibrationStream(CAL_BATCH_SIZE, NB_CAL_BATCHES); //locate the BatchStream.h
     Int8EntropyCalibrator calibrator(calibrationStream, FIRST_CAL_BATCH, "CalibrationTableSSD");
 
-    ICudaEngine* tmpEngine = loadModelAndCreateEngine(fileName.c_str(), N, parser, &calibrator, trtModelStream);
+    ICudaEngine* tmpEngine = loadModelAndCreateEngine(fileName.c_str(), maxBatchSize, parser, &calibrator, trtModelStream);
     assert(tmpEngine != nullptr);
     assert(trtModelStream != nullptr);
     tmpEngine->destroy();
@@ -541,18 +546,18 @@ int main(int argc, char* argv[])
     srand(unsigned(time(nullptr)));
     // Available images.
     std::vector<std::string> imageList = {"dog.ppm", "bus.ppm"};
-    std::vector<samplesCommon::PPM<INPUT_C, INPUT_H, INPUT_W>> ppms(N);
+    std::vector<samplesCommon::PPM<INPUT_C, INPUT_H, INPUT_W>> ppms(maxBatchSize);
 
     assert(ppms.size() <= imageList.size());
-    std::cout << " Num batches  " << N << std::endl;
-    for (int i = 0; i < N; ++i)
+    std::cout << " Num batches  " << maxBatchSize << std::endl;
+    for (int i = 0; i < maxBatchSize; ++i)
     {
         readPPMFile(locateFile(imageList[i]), ppms[i]);
     }
 
-    vector<float> data(N * INPUT_C * INPUT_H * INPUT_W);
+    vector<float> data(maxBatchSize * INPUT_C * INPUT_H * INPUT_W);
 
-    for (int i = 0, volImg = INPUT_C * INPUT_H * INPUT_W; i < N; ++i)
+    for (int i = 0, volImg = INPUT_C * INPUT_H * INPUT_W; i < maxBatchSize; ++i)
     {
         for (int c = 0; c < INPUT_C; ++c)
         {
@@ -574,18 +579,18 @@ int main(int argc, char* argv[])
     assert(context != nullptr);
 
     // Host memory for outputs.
-    vector<float> detectionOut(N * detectionOutputParam.keepTopK * 7);
-    vector<int> keepCount(N);
+    vector<float> detectionOut(maxBatchSize * detectionOutputParam.keepTopK * 7);
+    vector<int> keepCount(maxBatchSize);
 
     // Run inference.
-    doInference(*context, &data[0], &detectionOut[0], &keepCount[0], N);
+    doInference(*context, &data[0], &detectionOut[0], &keepCount[0], maxBatchSize);
     cout << " KeepCount " << keepCount[0] << "\n";
 
     std::string CLASSES[OUTPUT_CLS_SIZE];
 
     populateClassLabels(CLASSES);
 
-    for (int p = 0; p < N; ++p)
+    for (int p = 0; p < maxBatchSize; ++p)
     {
         for (int i = 0; i < keepCount[p]; ++i)
         {

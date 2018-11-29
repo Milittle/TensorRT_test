@@ -291,6 +291,8 @@ int main(int argc, char** argv)
     if (!trtEngineStream)
         RETURN_AND_LOG(EXIT_FAILURE, ERROR, "Model load failed");
 
+	cout << trtEngineStream->size() << std::endl;
+
 
 	//serialize the engine and save to 'engineStream.bin' file in data/mnist/ folder
 	fstream os("../../data/mnist/engineStream.bin", std::ios::out | std::ios::binary);
@@ -303,6 +305,9 @@ int main(int argc, char** argv)
 	IRuntime* runtime = createInferRuntime(gLogger);
 	nvinfer1::IPluginFactory* factory{ nullptr };
 	ICudaEngine* engine = runtime->deserializeCudaEngine(trtEngineStream->data(), trtEngineStream->size(), factory);
+
+	runtime->destroy();
+	trtEngineStream->destroy();
 
     execute(*engine);
     engine->destroy();

@@ -281,6 +281,8 @@ int main(int argc, char** argv)
 		std::vector < std::string > { OUTPUT_BLOB_NAME0, OUTPUT_BLOB_NAME1, OUTPUT_BLOB_NAME2 },
 		N, &pluginFactorySerialize, &trtModelStream);
 
+	cout << trtModelStream->size() << std::endl;
+
     assert(trtModelStream != nullptr);
     pluginFactorySerialize.destroyPlugin();
 

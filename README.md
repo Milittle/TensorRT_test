@@ -1,6 +1,6 @@
 # TensorRT5.0 Test Integration
 
-Project **TensorRT_test** is an TensorRT Library Example Integrated based on Windows Visual Studio 2017, which make our machine learning can run fast in inference stage.
+Project **TensorRT_test** is an TensorRT Library Example Integrated based on Windows Visual Studio 2017, which make our machine learning can run fastly in inference stage.
 
 >you can look more information about **TensorRT** in [TensorRT Dev Guide](https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/index.html) 
 

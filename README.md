@@ -1,6 +1,6 @@
 # TensorRT5.0 Test Integration
 
-Project **TensorRT_test** is an TensorRT Library Example Integrated based on Windows Visual Studio 2017, which make our machine learning can run fast in inference stage.
+Project **TensorRT_test** is an TensorRT Library Example Integrated based on Windows Visual Studio 2017, which make our machine learning can run fastly in inference stage.
 
 >you can look more information about **TensorRT** in [TensorRT Dev Guide](https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/index.html) 
 
@@ -8,7 +8,8 @@ Project **TensorRT_test** is an TensorRT Library Example Integrated based on Win
 
 * **sampleLoadEngineStream:** deserializing the engine stream by `engineStream.bin` locating in the `{SolutionDir}/data/mnist/` folder.
 * **sampleResNetv2**: using the Resnetv2 pb file transform to uff file and executing the inference.
-* **sampleDetection**: solve the TensorFlow BatchNormalization operator. TensorRT do not support the BN's Switch and Merge. I use pb graph and remove some nodes about Switching and Merging then merging related node to pb graph, which  convert to uff file using for TensorRT uff parser parsing the model file.
+* **sampleDetection**: (Defect Detection Demo)Solving the TensorFlow BatchNormalization operator. TensorRT do not support the BN's Switch and Merge. I use pb graph and remove some nodes about Switching and Merging then merging related node to pb's graph, which  convert to uff file using for TensorRT uff parser parsing the model file.
+I use ten defect's image to test the result. So the fllowing time performance is 10 images inferencing time.
 
 **sampleDetection Time consume:**
 
@@ -20,24 +21,27 @@ Project **TensorRT_test** is an TensorRT Library Example Integrated based on Win
 
 ## Table of Content
 
-* [Prerequisites](#Prerequisites)
-* [Getting the code](#getting-the-code)
-* [Project Structure](#project-structure)
-* [Run the Example using VS](#run-the-example-using-vs)
-  * [1. sampleUffMNIST](#sampleUffMNIST)
-  * [2. sampleUffSSD](#sampleUffSSD)
-  * [3. sampleMNIST](#sampleMNIST)
-  * [4. sampleMNISTAPI](#sampleMNISTAPI)
-  * [5. sampleSSD](#sampleSSD)
-  * [6. samplePlugin](#samplePlugin)
-  * [7. sampleCharRNN](#sampleCharRNN)
-  * [8. sampleFasterRCNN](#sampleFasterRCNN)
-  * [9. sampleGoogleNet](#sampleGoogleNet)
-  * [10. sampleINT8](sampleINT8)
-  * [11. sampleMLP](#sampleMLP)
-  * [12. sampleMovieLens](#sampleMovieLens)
-  * [13. sampleNMT](#sampleNMT)
-* [Contact Getting Help](#contact-getting-help)
+- [TensorRT5.0 Test Integration](#tensorrt50-test-integration)
+  - [Not NVIDIA TensorRT official Sample(BY Myself)](#not-nvidia-tensorrt-official-sampleby-myself)
+  - [Table of Content](#table-of-content)
+  - [Prerequisites](#prerequisites)
+  - [Getting the code](#getting-the-code)
+  - [Project Structure](#project-structure)
+  - [Run the Example using VS](#run-the-example-using-vs)
+    - [sampleUffMNIST](#sampleuffmnist)
+    - [sampleUffSSD](#sampleuffssd)
+    - [sampleMNIST](#samplemnist)
+    - [sampleMNISTAPI](#samplemnistapi)
+    - [sampleSSD](#samplessd)
+    - [samplePlugin](#sampleplugin)
+    - [sampleCharRNN](#samplecharrnn)
+    - [sampleFasterRCNN](#samplefasterrcnn)
+    - [sampleGoogleNet](#samplegooglenet)
+    - [sampleINT8](#sampleint8)
+    - [sampleMLP](#samplemlp)
+    - [sampleMovieLens](#samplemovielens)
+    - [sampleNMT](#samplenmt)
+  - [Contact Getting Help](#contact-getting-help)
 
 ## Prerequisites
 

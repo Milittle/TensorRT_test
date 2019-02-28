@@ -35,7 +35,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sampleLoadEngineStream", "s
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sampleResNetv2", "src\sampleResNetv2\sampleResNetv2.vcxproj", "{C440ACA2-CE55-48DD-AC90-B3F96556DFCD}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sampleDetection", "src\sampleDefection\sampleDefection.vcxproj", "{63873A87-C7C4-4EBA-80D0-C71C451E310B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sampleDetection", "src\sampleDetection\sampleDetection.vcxproj", "{63873A87-C7C4-4EBA-80D0-C71C451E310B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

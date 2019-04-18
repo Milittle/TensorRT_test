@@ -1,6 +1,6 @@
 # TensorRT5.0 Test Integration
 
-Project **TensorRT_test** is an TensorRT Library Example Integrated based on Windows Visual Studio 2017, which make our machine learning can run fastly in inference stage.
+Project **TensorRT_test** is a TensorRT Library Example integrated based on Windows Visual Studio 2017, which make our machine learning can run fastly at inference stage.
 
 >you can look more information about **TensorRT** in [TensorRT Dev Guide](https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/index.html) 
 
@@ -9,7 +9,7 @@ Project **TensorRT_test** is an TensorRT Library Example Integrated based on Win
 * **sampleLoadEngineStream:** deserializing the engine stream by `engineStream.bin` locating in the `{SolutionDir}/data/mnist/` folder.
 * **sampleResNetv2**: using the Resnetv2 pb file transform to uff file and executing the inference.
 * **sampleDetection**: (Defect Detection Demo)Solving the TensorFlow BatchNormalization operator. TensorRT do not support the BN's Switch and Merge. I use pb graph and remove some nodes about Switching and Merging then merging related node to pb's graph, which  convert to uff file using for TensorRT uff parser parsing the model file.
-I use ten defect's image to test the result. So the fllowing time performance is 10 images inferencing time.
+I use ten defect images to inference the results. So the fllowing time performance is 10 images inferencing time.
 
 **sampleDetection Time consume:**
 

@@ -16,7 +16,7 @@ I use ten defect images to inference the results. So the fllowing time performan
 |      tensorflow（python）- Titan-12G       |     tensorrt（c++）- Qudra 4G      | Conclusion |
 | :----------------------------------------: | :--------------------------------: | :--------: |
 |        pure run time（1344.3049ms）        |   pure execution time（44.5ms）    |  30 times  |
-| load data and related Tensor nodes（3473） | load data and execute（171.373ms） |  20 times  |
+| load data and related Tensor nodes（3473ms） | load data and execute（171.373ms） |  20 times  |
 |                GPU mem-2GB                 |                ---                 |            |
 
 ## Table of Content

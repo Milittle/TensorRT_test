@@ -62,7 +62,7 @@ git clone git@github.com:Milittle/TensorRT_test.git
 
 The Following is my Integrated Project's Structure, and you can download **data** and **3rdparty** by:
 
-**Google Driver** : [data and 3rdparty download link](https://drive.google.com/drive/folders/1mDKSmK5n2n7KnZhW5mQbUSJTSzZteN8c?usp=sharing)
+**Google Driver** : [data and 3rdparty download link](https://drive.google.com/open?id=1mDKSmK5n2n7KnZhW5mQbUSJTSzZteN8c)
 
 Once you download the data and 3rdparty, you can open the TenosrRT_test.sln file and exec the samples by Visual Studio 2017.
 

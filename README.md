@@ -48,7 +48,6 @@ I use ten defect images to inference the results. So the fllowing time performan
 * CUDA 10.0  [DOWNLOAD LINK](https://developer.nvidia.com/cuda-downloads)
 * cudnn 7.3 [DOWNLOAD LINK](https://developer.nvidia.com/cudnn)
 * You need the Visual Stdio 2017
-* The DataSets in my Google Driver
 
 ## Getting the code
 
